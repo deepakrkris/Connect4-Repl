@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+      "esModuleInterop": true,
+      "target": "es2015",
+      "module": "es2015",
+      "outDir": "dist",
+      "moduleResolution": "node",
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+  }
+}

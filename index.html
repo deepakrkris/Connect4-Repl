@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>    
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="app.css">
+      <link rel="stylesheet"
+      href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css">
+      <title>Connect 4 Side Stacker</title>
+  </head>
+  <body>
+        <script type="module" src="dist/client/main.js"> </script>
+        <div class="header"> Connect 4 Side Stacker </div>
+        <div class="subscribe-container">
+          <form>
+            <input type="text" minlength="4" maxlength="8" id="userId" placeholder="Your UserId" required>
+            <input type="text" minlength="6" maxlength="8" id="gameCode" placeholder="Game Code" required><br>
+            <button type='button' id="join_btn" class="subscribe-button">Join a game!!</button>
+            <div id="description" class="description">
+            </div> 
+          </form>
+        </div>
+        <div class="bodyTable">
+            <div class="bodyTableRow">
+              <div class="bodyTableCell">
+                <div class="col-md-9">
+                  <div class="sideTable" id="left-side-container">
+                      <div class="sideTableRow">
+                        <div class="sideTableCell">
+                          <div class="click_position" row="0" side="L"></div>
+                        </div>
+                      </div>
+                      <div class="sideTableRow">
+                        <div class="sideTableCell">
+                          <div class="click_position" row="1" side="L"></div>
+                        </div>
+                      </div>
+                      <div class="sideTableRow" >
+                        <div class="sideTableCell">
+                          <div class="click_position" row="2" side="L"></div>
+                        </div>
+                      </div>
+                      <div class="sideTableRow" >
+                        <div class="sideTableCell">
+                          <div class="click_position" row="3" side="L"></div>
+                        </div>
+                      </div>
+                      <div class="sideTableRow" >
+                        <div class="sideTableCell">
+                          <div class="click_position" row="4" side="L"></div>
+                        </div>
+                      </div>
+                      <div class="sideTableRow" >
+                        <div class="sideTableCell">
+                          <div class="click_position" row="5" side="L"></div>
+                        </div>
+                      </div>
+                      <div class="sideTableRow" >
+                        <div class="sideTableCell">
+                          <div class="click_position" row="6" side="L"></div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="boardCell">
+                <div class="board__container">
+                  <div class="board__row" coin-row-id="0">
+                  </div>
+                  <div class="board__row" coin-row-id="1">
+                  </div>
+                  <div class="board__row" coin-row-id="2">
+                  </div>
+                  <div class="board__row" coin-row-id="3">
+                  </div>
+                  <div class="board__row" coin-row-id="4">
+                  </div>
+                  <div class="board__row" coin-row-id="5">
+                  </div>
+                  <div class="board__row" coin-row-id="6">
+                  </div>
+              </div>
+              </div>
+              <div class="bodyTableCell">
+                <div class="sideTable" id="right-side-container">
+                  <div class="sideTableRow">
+                    <div class="sideTableCell">
+                      <div class="click_position" row="0" side="R"></div>
+                    </div>
+                  </div>
+                  <div class="sideTableRow">
+                    <div class="sideTableCell">
+                      <div class="click_position" row="1" side="R"></div>
+                    </div>
+                  </div>
+                  <div class="sideTableRow" >
+                    <div class="sideTableCell">
+                      <div class="click_position" row="2" side="R"></div>
+                    </div>
+                  </div>
+                  <div class="sideTableRow" >
+                    <div class="sideTableCell">
+                      <div class="click_position" row="3" side="R"></div>
+                    </div>
+                  </div>
+                  <div class="sideTableRow" >
+                    <div class="sideTableCell">
+                      <div class="click_position" row="4" side="R"></div>
+                    </div>
+                  </div>
+                  <div class="sideTableRow" >
+                    <div class="sideTableCell">
+                      <div class="click_position" row="5" side="R"></div>
+                    </div>
+                  </div>
+                  <div class="sideTableRow" >
+                    <div class="sideTableCell">
+                      <div class="click_position" row="6" side="R"></div>
+                    </div>
+                  </div>
+              </div>
+              </div>  
+            </div>
+        </div>
+  </body>
+</html>

@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    font-family: Montserrat;
+    background: linear-gradient(#3265c2, #3265c2) no-repeat center fixed;
+}
+
+.subscribe-container {
+    max-width: 800px;
+    margin: 60px auto;
+    background-color: rgba(130, 184, 219, 0.5);
+    border: 5px solid rgb(98, 143, 228);
+}
+
+.description {
+    position: relative;
+    margin: 10px;
+    width: 35%;
+    display: flex;
+    flex-wrap: wrap;
+    font-family: "Permanent Marker";
+    font-size: 20px;
+    color:black;
+    padding: 10px;
+}
+
+.bodyTable{
+    border: 0px;
+    width: 45%;
+    display: table;
+    height: 60vh;
+    vertical-align: top;
+    background-color: rgb(98, 143, 228);
+    margin: 0 auto;
+    box-shadow: 5px 5px 5px #0e1c36;
+    border-radius: 5%;
+    border: 5px solid #0e1c36;
+}
+
+.bodyTableRow {
+    width: 100%;
+    display: table-row;
+    padding: 0;
+}
+
+.bodyTableCell {
+    width: 5%;
+    border: 0px;
+    display: table-cell;
+    padding: 0px;
+}
+
+.sideTable{
+    height: 60vh;
+    width: 5%;
+    vertical-align: top;
+    display: table;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.sideTableRow {
+    width: 100%;
+    display: table-row;
+    padding: 0;
+}
+
+.sideTableCell {
+    border: 0px;
+    display: table-cell;
+    padding: 0px;
+}
+
+
+.boardCell {
+    width: 90%;
+    border: 0px;
+    display: table-cell;
+    padding: 0px;
+}
+
+.board__container {
+    width: 90%;
+    vertical-align: top;
+    background-color: rgba(130, 184, 219, 0.5);
+    border: 5px solid rgba(17, 228, 10, 0.5);
+    margin: 0 auto;
+    box-shadow: 5px 5px 5px #0e1c36;
+    border-radius: 5%;
+    border: 5px solid #0e1c36;
+    display: table;
+    height: 60vh;
+    vertical-align: top;
+}
+
+.board__row {
+    font-size: 0px;
+    text-align: center;
+    border: 0px;
+    vertical-align: top;
+    width: 100%;
+    display: table-row;
+    padding: 0;
+}
+
+.letter {
+    float: left;
+    width: 14%;
+    border: 15px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.click_position {
+    background-color: rgba(255, 0, 0, 0.2);
+    height: 50px;
+    width: 50px;
+    border: 10px;
+    margin: 0;
+    display: block;
+    border-radius: 50%;
+    box-shadow: inset 0px 0px 10px #000;
+}
+
+.empty_position {
+    background-color: rgba(255, 0, 0, 0.2);
+    height: 60px;
+    width: 60px;
+    border: 10px;
+    margin: 0;
+    display: block;
+    border-radius: 50%;
+}
+
+.RED_COIN {
+    background-color: #FF5722;
+    height: 50px;
+    width: 50px;
+    border: 10px;
+    margin: 0;
+    display: block;
+    border-radius: 50%;
+    box-shadow: inset 0px 0px 10px #000;
+}
+
+.BLUE_COIN {
+    background-color: rgba(17, 228, 10, 0.5);
+    height: 50px;
+    width: 50px;
+    border: 10px;
+    margin: 0;
+    display: block;
+    border-radius: 50%;
+    box-shadow: inset 0px 0px 10px #000;
+}
