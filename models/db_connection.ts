@@ -6,13 +6,22 @@ import path from 'path';
 const __dirname = path.resolve();
 export const root: string = path.resolve(__dirname, "..")
 
-const AppDataSource = new DataSource({
-    type: "sqlite",
-    database: `${root}/data/line.sqlite`,
-    entities: [User , Game],
+let AppDataSource = new DataSource({
+    url: process.env.DATABASE_URL || `postgres://thangarajamohan:myPassword@localhost:5432/postgres`,
+    type: "postgres",
     synchronize: true,
-    logging: false,
+    entities: [ User, Game ],
 })
+
+if (process.env.MOCK_DB) {
+    AppDataSource = new DataSource({
+        type: "sqlite",
+        database: `${root}/data/line.sqlite`,
+        entities: [ User , Game ],
+        synchronize: true,
+        logging: false,
+    })
+}
 
 AppDataSource.initialize();
 

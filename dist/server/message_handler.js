@@ -56,6 +56,6 @@ export class MessageHandler {
             'type': 'peer_disconnected',
             message: 'Peer disconnected, Wait until they rejoin!'
         };
-        connections.get(peer_connection_id).send(JSON.stringify(start_your_turn));
+        //connections.get(peer_connection_id).send(JSON.stringify(start_your_turn))
     }
 }
