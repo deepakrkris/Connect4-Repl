@@ -11,6 +11,11 @@ import {
     handleGameSessionNotification,
     handleUserActionNotification } from './ui_handlers.js'
 
+/**
+ * Class to hold ui state and connection
+ *     - game code, user id and assigned coin 
+ *     - websocket client
+ */
 export class ClientConnection {
     static client_state : ClientState
     static websocket : WebSocket

@@ -7,11 +7,18 @@ import { sameRowMatch, sameColumnMatch, diagonalMatch } from './board_handlers.j
 import { EventEmitter } from 'events'
 import { MessageHandler } from './message_handler.js'
 import { GameServer } from './game_server.js'
-import { createOrGetGameSession, saveGameMove, saveGameResult } from '../models/repository.js';
+import { createOrGetGameSession, createOrGetUser, saveGameMove, saveGameResult } from '../models/repository.js';
 
 const user1_coin = 'RED_COIN'
 const user2_coin = 'BLUE_COIN'
 
+/**
+ * 
+ * Class for a game instance
+ *     - holds state of game
+ *     - executes user turns
+ *     - emits game and user events
+ */
 export class Game extends EventEmitter {
     game_state : GameState
     last_move_row : number
@@ -64,10 +71,12 @@ export class Game extends EventEmitter {
         if (!game_state.user1) {
             this.initUser1(message.userId, ws.connectionid)
             GameServer.connection_to_game.set(ws.connectionid, game_state.gameCode)
+            await createOrGetUser(message.userId)
             this.emit('game_init', ws, message.gameCode, message.userId, user1_coin)
         } else if (!game_state.user2) {
             this.initUser2(message.userId, ws.connectionid)
             GameServer.connection_to_game.set(ws.connectionid, game_state.gameCode)
+            await createOrGetUser(message.userId)
             this.emit('game_init', ws, message.gameCode, message.userId, user2_coin)
             this.emit('next_user_turn', this, game_state.user1_connection)
             await createOrGetGameSession(game_state)
@@ -79,12 +88,12 @@ export class Game extends EventEmitter {
             this.game_state.user1 = null
             this.game_state.user1_connection = null
             this.game_state.status = 'user1_disconnected'
-            this.emit('user_disconnected', this.game_state.user2_connection)
+            // this.emit('user_disconnected', this.game_state.user2_connection)
         } if (connectionId == this.game_state.user2_connection) {
             this.game_state.user2 = null
             this.game_state.user2_connection = null
             this.game_state.status = 'user2_disconnected'
-            this.emit('user_disconnected', this.game_state.user1_connection)
+            // this.emit('user_disconnected', this.game_state.user1_connection)
         }
     }
 

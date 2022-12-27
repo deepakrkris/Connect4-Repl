@@ -1,5 +1,27 @@
 import { GameState } from '../models/types';
 
+/**
+ * 
+ * @param game 
+ * 
+ * 
+ * 
+      0     1     2       3     4      5      6
+   0 ['B',   'R' , ' ',  ' ',  ' ' ,  '',   '']
+   1 ['B',   'B' , 'R',  ' ',  ' ' ,  'R',  'B']
+   2 ['R',   'B' , 'R',  'R',  ' ' ,  'B',  'B']
+   3 ['R',   'B' , 'R',  'R',  'R' ,  '',   '']
+   4 ['B',   ' ' , ' ',  ' ',  ' ' ,  '',   '']
+   5 ['',    ' ' , ' ',  ' ',  ' ' ,  '',   '']
+   6 ['R',   ' ' , ' ',  ' ',  'R' ,  'R',  'R']
+ *
+ *  a new entry of R (red coin) at (3,5) should result in a match of 4 continuous coins in a row
+ *
+ * @param row 
+ * @param col 
+ * @param coin 
+ * @returns 
+ */
 export function sameColumnMatch(game : GameState, row : number, col : number, coin: string) {
     const match_candidates : string[] = game.board.map((row) => row[col])
     let continuous_match = 0
@@ -15,6 +37,30 @@ export function sameColumnMatch(game : GameState, row : number, col : number, co
     return continuous_match >= 4
 }
 
+/**
+ * 
+ * @param game 
+ * 
+ * 
+ * 
+      0     1     2       3     4      5      6
+   0 ['B',   'R' , ' ',  ' ',  ' ' ,  '',   '']
+   1 ['B',   'B' , 'R',  ' ',  ' ' ,  'R',  'B']
+   2 ['R',   'B' , 'R',  'R',  ' ' ,  'B',  'B']
+   3 ['R',   'B' , 'R',  'R',  'R' ,  '',   '']
+   4 ['B',   ' ' , ' ',  ' ',  ' ' ,  '',   '']
+   5 ['',    ' ' , ' ',  ' ',  ' ' ,  '',   '']
+   6 ['R',   ' ' , ' ',  ' ',  'R' ,  'R',  'R']
+ *
+ *  a new entry of B (Blue coin) at (4,1) should result in a match of 4 continuous coins in a column
+ * 
+ * 
+ * 
+ * @param row 
+ * @param col 
+ * @param coin 
+ * @returns 
+ */
 export function sameRowMatch(game : GameState,  row : number, col : number, coin: string) {
     const match_candidates : string[] = game.board[row]
     let continuous_match = 0
@@ -30,6 +76,31 @@ export function sameRowMatch(game : GameState,  row : number, col : number, coin
     return continuous_match >= 4
 }
 
+/**
+ * 
+ * @param board 
+ * 
+ * 
+ * 
+      0     1     2       3     4      5      6
+   0 ['B',   'B' , ' ',  ' ',  ' ' ,  '',   '']
+   1 ['B',   'B' , 'R',  ' ',  ' ' ,  'R',  'B']
+   2 ['R',   'B' , 'R',  'R',  'R' ,  'B',  'B']
+   3 ['R',   'B' , 'R',  'R',  'R' ,  '',   '']
+   4 ['B',   'R' , ' ',  ' ',  ' ' ,  '',   'B']
+   5 ['',    ' ' , ' ',  ' ',  ' ' ,  'R',  'R']
+   6 ['R',   ' ' , ' ',  ' ',  'R' ,  'R',  'R']
+ *
+ *  a new entry of R (Red coin) in one of (0,6) , (4, 2) , (4, 5) 
+ *  should result in a match of 4 continuous coins in a diagonal
+ * 
+ * 
+ * 
+ * @param row 
+ * @param col 
+ * @param coin 
+ * @returns 
+ */
 export function get_matchfn_for_change_vectors(board : string[][], row : number, col : number, coin: string) {
     return function match(change_vector: number[][]) {
         let continuous_match = 0

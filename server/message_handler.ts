@@ -8,6 +8,12 @@ import { GameServer } from "./game_server.js"
 const winning_message = 'You Won !!!'
 const next_try_message = 'The other player won :) , Ask for a re-match !! '
 
+/**
+ * MessageHandler
+ *        listens to all game instances
+ *        handles all logic to send game notifications to users
+ *
+ */
 export class MessageHandler {
 
     static endOfGameMessages(game : Game) {
@@ -70,6 +76,6 @@ export class MessageHandler {
             'type': 'peer_disconnected',
             message: 'Peer disconnected, Wait until they rejoin!'
         }
-        //connections.get(peer_connection_id).send(JSON.stringify(start_your_turn))
+        connections.get(peer_connection_id).send(JSON.stringify(start_your_turn))
     }
 }

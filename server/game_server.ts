@@ -14,6 +14,13 @@ import { MessageHandler } from './message_handler.js'
 const CODE_RANGE = "#$@?{}0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#$@?{}"
 const code_generator = nanoid.customAlphabet(CODE_RANGE, 6)
 
+/**
+ *
+ * Game Server
+ *      - manages ws connections
+ *      - holds game instances
+ *      - holds generated game codes
+ */
 export class GameServer {
     static games: Map<string, Game>
     static socketServer: WebSocketServer 

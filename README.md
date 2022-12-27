@@ -1,4 +1,5 @@
 # Connect4 - SideStacker Game
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 ![cover](https://github.com/deepakrkris/UI_workout/blob/main/day02/05_connect4/connect4_page.png?raw=true)
 
@@ -10,6 +11,7 @@ SideStacker version of Connect-4
 - [Installation](#installation)
 - [Design](#Design)
 - [Licence](#Licence)
+- [Database](#Database)
 
 ## Requirements
 
@@ -51,6 +53,16 @@ Step 5: Load game page in browser and enter user id and game code
 
 ## Design
 
+
+![Design](https://github.com/deepakrkris/UI_workout/blob/main/day02/05_connect4/Connect4_components.excalidraw.png?raw=true)
+
+
+## Database
+
+TypeOrm is used and as such configurations for postgres and sqlite are available
+
+- Snapshot of a sample game state in postgres
+![Snapshot of database](https://github.com/deepakrkris/UI_workout/blob/main/day02/05_connect4/connect4_save_to_postgres.png?raw=true)
 
 ## Licence
 [MIT](/LICENCE)

@@ -1,38 +1,45 @@
 import "reflect-metadata"
-import { DataSource } from "typeorm"
+import { DataSource, QueryBuilder, QueryRunner } from "typeorm"
 import { User , Game } from "../models/index.js"
 import path from 'path';
 
 const __dirname = path.resolve();
 export const root: string = path.resolve(__dirname, "..")
 
-let AppDataSource = new DataSource({
-    url: process.env.DATABASE_URL || `postgres://thangarajamohan:myPassword@localhost:5432/postgres`,
-    type: "postgres",
-    synchronize: true,
-    entities: [ User, Game ],
-})
+// eg : postgres://{user}:{pass}@localhost:5432/postgres
+const DATABASE_URL = process.env.DATABASE_URL
 
-if (process.env.MOCK_DB) {
+console.log("DATABASE_URL " , DATABASE_URL)
+
+let AppDataSource = null;
+
+if (DATABASE_URL) {
+    AppDataSource = new DataSource({
+        url: DATABASE_URL,
+        type: "postgres",
+        synchronize: true,
+        entities: [ User, Game ],
+        logging: false,
+    })
+} else {
     AppDataSource = new DataSource({
         type: "sqlite",
         database: `${root}/data/line.sqlite`,
-        entities: [ User , Game ],
+        entities: [User , Game],
         synchronize: true,
         logging: false,
     })
 }
 
-AppDataSource.initialize();
-
 export async function init() {
+    AppDataSource.initialize();
 }
 
-export function getQueryRunner() {
+export function getQueryRunner() : QueryRunner {
     return AppDataSource.createQueryRunner();
 }
 
-export function getQueryBuilder() {
+export function getQueryBuilder<T>() : QueryBuilder<T> {
     return AppDataSource.createQueryBuilder();
 }
 
